@@ -1,56 +1,40 @@
 <!DOCTYPE html>
 <html>
+
   <head>
     <meta charset='utf-8'>
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <meta name="viewport" content="width=640">
+    <meta name="description" content="Headline Tag Prediction : A Method to Predict Twitter Hashtags from Headlines using Natural Language processing">
 
-    <link rel="stylesheet" href="stylesheets/core.css" media="screen">
-    <link rel="stylesheet" href="stylesheets/mobile.css" media="handheld, only screen and (max-device-width:640px)">
-    <link rel="stylesheet" href="stylesheets/github-light.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
 
-    <script type="text/javascript" src="javascripts/modernizr.js"></script>
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-    <script type="text/javascript" src="javascripts/headsmart.min.js"></script>
-    <script type="text/javascript">
-      $(document).ready(function () {
-        $('#main_content').headsmart()
-      })
-    </script>
-    <title>Headline Tag Prediction by BryantN</title>
+    <title>Headline Tag Prediction</title>
   </head>
 
   <body>
-    <a id="forkme_banner" href="https://github.com/BryantN/TaggingRSSFeed">View on GitHub</a>
-    <div class="shell">
 
-      <header>
-        <span class="ribbon-outer">
-          <span class="ribbon-inner">
-            <h1>Headline Tag Prediction</h1>
-            <h2>A Method to Predict Twitter Hashtags from Headlines using Natural Language processing</h2>
-          </span>
-          <span class="left-tail"></span>
-          <span class="right-tail"></span>
-        </span>
-      </header>
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/BryantN/TaggingRSSFeed">View on GitHub</a>
 
-      <section id="downloads">
-        <span class="inner">
-          <a href="https://github.com/BryantN/TaggingRSSFeed/zipball/master" class="zip"><em>download</em> .ZIP</a><a href="https://github.com/BryantN/TaggingRSSFeed/tarball/master" class="tgz"><em>download</em> .TGZ</a>
-        </span>
-      </section>
+          <h1 id="project_title">Headline Tag Prediction</h1>
+          <h2 id="project_tagline">A Method to Predict Twitter Hashtags from Headlines using Natural Language processing</h2>
 
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/BryantN/TaggingRSSFeed/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/BryantN/TaggingRSSFeed/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
 
-      <span class="banner-fix"></span>
-
-
-      <section id="main_content">
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
         <h3>
 <a id="introduction" class="anchor" href="#introduction" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Introduction</h3>
 
-<p>The goal of this project was to generate tags that might be produced by users tweeting out articles. For instance, take the Headline “In Pac-12 championship, Washington makes case for College Football Playoff spot” An Author for instance would want to know the following: What keywords does the reader see? What keyword(s) will the reader use to tweet the article ? This AI tool will help these writers, and marketers, determine the answers to these questions.
-<img src="https://raw.githubusercontent.com/BryantN/TaggingRSSFeed/master/IDKeywords_Tags.PNG" alt="adkvsk gsv"></p>
+<p>The goal of this project was to generate tags that might be produced by users tweeting out articles. For instance, take the Headline “In Pac-12 championship, Washington makes case for College Football Playoff spot” An Author for instance would want to know the following: What keywords does the reader see? What keyword(s) will the reader use to tweet the article ? This AI tool will help these writers, and marketers, determine the answers to these questions.</p>
 
 <h3>
 <a id="methods" class="anchor" href="#methods" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Methods</h3>
@@ -64,12 +48,18 @@ For the purpose of testing accuracy, we view the top 3 hashtags and if any of th
 <h3>
 <a id="results" class="anchor" href="#results" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Results</h3>
 
+<p><img src="https://raw.githubusercontent.com/BryantN/TaggingRSSFeed/master/ReusltPercentBarchart.PNG" alt="adkvsk gsv"></p>
+
 <p>We can see that strangely, nouns are the  best performers. Even though it is a less strict category than proper names and nouns. Verbs alone, also perform poorly. I hypothesize this is due to the fact that few verbs, without context do not elicit a reaction.
 Figure 2 shows how people identify keywords from the headline,
 “In Pac-12 championship, Washington makes case for College Football Playoff spot”
  and in figure 3 shows is how the system identifies keywords, and what hashtags it predicted.</p>
 
+<p><img src="https://raw.githubusercontent.com/BryantN/TaggingRSSFeed/master/WordFrequency.PNG" alt="adkvsk gsv"></p>
+
 <p>From this frequency chart we can see that all the top frequencies are indeed nouns. This helps reinforce the case that nouns are incredibly important for keywords. However, when going through the data, besides one response almost everyone, included multiple keywords. This indicates that instead of focusing on individual keywords as shown in the method, instead one should be focusing on either pairs or multiple combinations of keywords.</p>
+
+<p><img src="https://raw.githubusercontent.com/BryantN/TaggingRSSFeed/master/IDKeywords_Tags.PNG" alt="adkvsk gsv"></p>
 
 <p>How the system Identifies  Keywords. The yellow words are identified Keywords. The following lines are Hashtags predicted for the headline. This is an example of How one Keyword can effect the prediction of tags. Washington having likely has a large and diverse number of hashtags tweeted with this keyword, affecting the most likely tags to appear.</p>
 
@@ -84,21 +74,17 @@ Named entity recognition is very difficult, however there are some methods that 
 
 <p>From the results of the Google Survey, It is very clear, that rarely is it a single keyword that is the deciding factor for reaction. The algorithm needs to be expanded to look at combinations of keywords rather than the individual keywords. Likely not just combinations but also tone of voice. If continued the project will have to do more research onto exactly what people see as important words in the headline.</p>
       </section>
+    </div>
 
-      <footer>
-        <span class="ribbon-outer">
-          <span class="ribbon-inner">
-            <p>this project by <a href="https://github.com/BryantN">BryantN</a> can be found on <a href="https://github.com/BryantN/TaggingRSSFeed">GitHub</a></p>
-          </span>
-          <span class="left-tail"></span>
-          <span class="right-tail"></span>
-        </span>
-        <p>Generated with <a href="https://pages.github.com">GitHub Pages</a> using Merlot</p>
-        <span class="octocat"></span>
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Headline Tag Prediction maintained by <a href="https://github.com/BryantN">BryantN</a></p>
+        <p>Published with <a href="https://pages.github.com">GitHub Pages</a></p>
       </footer>
-
     </div>
 
     
+
   </body>
 </html>
