@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Headline Tag Prediction by BryantN</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">Headline Tag Prediction</h1>
+      <h2 class="project-tagline">A Method to Predict Twitter Hashtags from Headlines using Natural Language processing</h2>
+      <a href="https://github.com/BryantN/TaggingRSSFeed" class="btn">View on GitHub</a>
+      <a href="https://github.com/BryantN/TaggingRSSFeed/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/BryantN/TaggingRSSFeed/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
+
+    <section class="main-content">
+      <h3>
+<a id="introduction" class="anchor" href="#introduction" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Introduction</h3>
+
+<p>The goal of this project was to generate tags that might be produced by users tweeting out articles. For instance, take the Headline “In Pac-12 championship, Washington makes case for College Football Playoff spot” An Author for instance would want to know the following: What keywords does the reader see? What keyword(s) will the reader use to tweet the article ? This AI tool will help these writers, and marketers, determine the answers to these questions.
+<img src="ResultImages/IDKeywords_Tags.PNG" alt=""></p>
+
+<h3>
+<a id="methods" class="anchor" href="#methods" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Methods</h3>
+
+<p>Data was gathered with the rssfeed in Python. Then using the URLs of the articles I found any retweets of the article. From these tweets I then stored, what tags were used, and the titles of the article. I also use Auto Tags, based off the type of the feed, (politics, sports etc..)
+Then In order to do keyword recognition I used natural language processing. Specifically the NLTK library was used. Keywords were Identified by Nouns, Verbs, Pronouns, and Names.
+Using the keyword identification on articles, we can predict Tags.  For every keyword/hashtag pair for each article, we either add to the dictionary this pair with a count of one, or increment the existing count by one.
+To predict the tags that will appear when article is tweeted out, using the keyword identification, we then view all hashtags associated with all keywords, and order them by the number of times the hashtag has appeared. 
+For the purpose of testing accuracy, we view the top 3 hashtags and if any of these hashtags are present in the actual tags of the tweets then we count it as a success.</p>
+
+<h3>
+<a id="results" class="anchor" href="#results" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Results</h3>
+
+<p>We can see that strangely, nouns are the  best performers. Even though it is a less strict category than proper names and nouns. Verbs alone, also perform poorly. I hypothesize this is due to the fact that few verbs, without context do not elicit a reaction.
+Figure 2 shows how people identify keywords from the headline,
+“In Pac-12 championship, Washington makes case for College Football Playoff spot”
+ and in figure 3 shows is how the system identifies keywords, and what hashtags it predicted.</p>
+
+<p>From this frequency chart we can see that all the top frequencies are indeed nouns. This helps reinforce the case that nouns are incredibly important for keywords. However, when going through the data, besides one response almost everyone, included multiple keywords. This indicates that instead of focusing on individual keywords as shown in the method, instead one should be focusing on either pairs or multiple combinations of keywords.</p>
+
+<p>How the system Identifies  Keywords. The yellow words are identified Keywords. The following lines are Hashtags predicted for the headline. This is an example of How one Keyword can effect the prediction of tags. Washington having likely has a large and diverse number of hashtags tweeted with this keyword, affecting the most likely tags to appear.</p>
+
+<h3>
+<a id="conclusion" class="anchor" href="#conclusion" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Conclusion</h3>
+
+<p>Data Gathering.
+Current Events have a heavy effect on what the data recognizes as keywords. Also instead of training a general tag solver, perhaps a tag solver, that only trains using past x days. This would help to capture these current trends I seem to be missing. </p>
+
+<p>Keyword Detection.
+Named entity recognition is very difficult, however there are some methods that could be implemented still. After Identifying keywords, perhaps one could score the keywords to weight their influence on the top tags.</p>
+
+<p>From the results of the Google Survey, It is very clear, that rarely is it a single keyword that is the deciding factor for reaction. The algorithm needs to be expanded to look at combinations of keywords rather than the individual keywords. Likely not just combinations but also tone of voice. If continued the project will have to do more research onto exactly what people see as important words in the headline.</p>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/BryantN/TaggingRSSFeed">Headline Tag Prediction</a> is maintained by <a href="https://github.com/BryantN">BryantN</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+  
+  </body>
+</html>
